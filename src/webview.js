@@ -312,5 +312,7 @@ function handleIncomingMessage(e) {
 
 // iOS
 window.addEventListener('message', handleIncomingMessage);
+window.removeEventListener('message', handleIncomingMessage);
 // Android
 document.addEventListener('message', handleIncomingMessage);
+document.removeEventListener('message', handleIncomingMessage);
