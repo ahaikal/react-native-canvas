@@ -137,4 +137,26 @@ export const webviewEvents = types => target => {
       }
     });
   };
+
+    target.prototype.removeEventListener = function(type, callback) {
+    this.removeMessageListener(message => {
+      if (
+        message &&
+        message.type === 'event' &&
+        message.payload.target[WEBVIEW_TARGET] === this[WEBVIEW_TARGET] &&
+        message.payload.type === type
+      ) {
+        for (const key in message.payload.target) {
+          const value = message.payload.target[key];
+          if (key in this && this[key] !== value) {
+            this[key] = value;
+          }
+        }
+        callback({
+          ...message.payload,
+          target: this,
+        });
+      }
+    });
+  };
 };
