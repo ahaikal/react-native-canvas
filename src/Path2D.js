@@ -31,4 +31,8 @@ export default class Path2D {
   addMessageListener = listener => {
     return this.canvas.addMessageListener(listener);
   };
+
+  removeMessageListener = listener => {
+    return this.canvas.removeMessageListener(listener);
+  };
 }
