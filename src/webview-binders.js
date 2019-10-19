@@ -138,7 +138,7 @@ export const webviewEvents = types => target => {
     });
   };
 
-    target.prototype.removeEventListener = function(type, callback) {
+  target.prototype.removeEventListener = function(type, callback) {
     this.removeMessageListener(message => {
       if (
         message &&
