@@ -28,4 +28,8 @@ export default class Image {
   addMessageListener = listener => {
     return this.canvas.addMessageListener(listener);
   };
+
+ removeMessageListener = listener => {
+    return this.canvas.removeMessageListener(listener);
+  };
 }
